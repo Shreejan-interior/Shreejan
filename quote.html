@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#EFEDE8">
+  <meta name="description" content="Create an itemised interior design quotation with the Shreejan Interiors quote builder.">
+  <title>Quotation maker — Shreejan Interiors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="site-nav" aria-label="Main navigation"><div class="wrap nav-inner">
+    <a class="logo" href="index.html" aria-label="Shreejan home">Shreejan<span class="logo-dot">.</span></a>
+    <div class="nav-links"><a href="index.html">Home</a><a href="index.html#gallery">Gallery</a><a href="villas-hotels.html">Villas &amp; Hotels</a><a href="quote.html" aria-current="page">Quotation</a></div>
+    <div class="nav-actions"><button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch colour theme">◐</button><a class="btn small nav-cta" href="index.html#contact">Book a consultation</a></div>
+  </div></nav>
+  <main id="main">
+    <section class="wrap section">
+      <span class="eyebrow">Quotation maker</span>
+      <h1>Build an itemised quote in a few minutes.</h1>
+      <p class="lede">Add your project details, rooms and services to see an indicative estimate update as you go. Your quote stays saved in this browser.</p>
+      <div class="how-grid"><div class="how-card"><strong>01 · Client &amp; project</strong><span>Start with the details we need to address your quote.</span></div><div class="how-card"><strong>02 · Rooms</strong><span>List each space and its approximate area.</span></div><div class="how-card"><strong>03 · Services</strong><span>Choose the support that fits your brief.</span></div><div class="how-card"><strong>04 · Share</strong><span>Copy a clean text summary when you’re ready.</span></div></div>
+    </section>
+    <section class="wrap quote-layout" aria-label="Quotation builder and live preview">
+      <form class="builder" id="quote-builder">
+        <section class="builder-section">
+          <h2>Client &amp; project</h2>
+          <div class="form-grid">
+            <div class="field"><label for="client-name">Client name</label><input id="client-name" name="clientName" autocomplete="name" placeholder="Client or company"></div>
+            <div class="field"><label for="client-contact">Phone or email</label><input id="client-contact" name="clientContact" placeholder="Contact details"></div>
+            <div class="field full"><label for="project-address">Project / site address</label><input id="project-address" name="address" autocomplete="street-address" placeholder="Address or project name"></div>
+            <div class="field full"><label for="quote-project-type">Project type</label><select id="quote-project-type" name="projectType"><option>Full home</option><option>Kitchen or bathroom</option><option>Single room</option><option>Office or studio</option><option>Villa</option><option>Hotel or resort</option><option>Styling only</option></select></div>
+          </div>
+        </section>
+        <section class="builder-section">
+          <h2>Rooms &amp; scope</h2>
+          <div id="room-list" aria-live="polite"></div>
+          <div class="builder-actions"><button class="btn small" type="button" id="add-room">+ Add room</button><button class="btn small ghost" type="button" id="preset-2bhk">Load 2BHK preset</button><button class="btn small ghost" type="button" id="preset-3bhk">Load 3BHK preset</button><button class="btn small ghost" type="button" id="preset-villa">Load villa preset</button></div>
+          <p class="quote-update-note">Room changes update the estimate live. Enter a room’s area to include its works in the valuation.</p>
+          <div class="service-options">
+            <label class="service-option"><input type="checkbox" name="service" value="visualisation"><span>3D visualisation<small>₹6,000 per room</small></span></label>
+            <label class="service-option"><input type="checkbox" name="service" value="supervision"><span>Site supervision<small>₹60 per sq ft</small></span></label>
+            <label class="service-option"><input type="checkbox" name="service" value="management"><span>Project management<small>4% of works</small></span></label>
+            <label class="service-option"><input type="checkbox" name="service" value="styling"><span>Styling &amp; soft furnishing<small>₹18,000 per room</small></span></label>
+            <label class="service-option"><input type="checkbox" name="service" value="lighting"><span>Lighting design<small>₹40 per sq ft</small></span></label>
+            <label class="service-option"><input type="checkbox" name="service" value="model"><span>Model room (hotels)<small>₹2,50,000 fixed</small></span></label>
+          </div>
+        </section>
+        <section class="builder-section">
+          <h2>Rates &amp; adjustments</h2>
+          <div class="form-grid">
+            <div class="field"><label for="fee-percent">Design fee (% of works)</label><input id="fee-percent" name="feePercent" type="number" min="0" max="100" step="0.5" value="8"></div>
+            <div class="field"><label for="discount-percent">Discount (%)</label><input id="discount-percent" name="discountPercent" type="number" min="0" max="100" step="0.5" value="0"></div>
+            <div class="field"><label for="gst-percent">GST (%)</label><input id="gst-percent" name="gstPercent" type="number" min="0" max="100" step="0.5" value="18"></div>
+            <div class="field"><label for="valid-days">Valid for (days)</label><input id="valid-days" name="validDays" type="number" min="1" max="365" step="1" value="30"></div>
+            <div class="field full"><label for="quote-number">Quote number</label><input id="quote-number" name="quoteNumber" readonly></div>
+            <div class="field full"><label for="client-notes">Notes to client</label><textarea id="client-notes" name="notes" placeholder="Add a personal note or scope detail"></textarea></div>
+          </div>
+          <button class="btn ghost small clear-quote" id="clear-quote" type="button">Clear and start new quote</button>
+        </section>
+      </form>
+      <aside class="quote-preview" aria-label="Live quotation preview">
+        <div class="quote-head"><div><a class="logo" href="index.html">Shreejan<span class="logo-dot">.</span></a><h2>Interior design quotation</h2></div><div class="quote-meta"><strong data-preview="number">—</strong><span data-preview="date">—</span><span>Valid until <span data-preview="valid-until">—</span></span></div></div>
+        <div class="quote-parties"><div><span class="eyebrow">Prepared for</span><strong data-preview="client">Client name</strong><span data-preview="contact">Phone or email</span></div><div><span class="eyebrow">Project</span><strong data-preview="project">Project type</strong><span data-preview="address">Site address</span></div></div>
+        <div class="quote-table-wrap"><table class="quote-table"><thead><tr><th>Item</th><th>Qty</th><th>Rate</th><th>Amount</th></tr></thead><tbody id="quote-items"></tbody></table></div>
+        <div class="quote-totals" id="quote-totals"></div>
+        <div class="quote-terms"><p><strong>Notes</strong><br><span data-preview="notes">No additional notes.</span></p><p><strong>Payment schedule</strong><br>10% on acceptance · 40% on concept sign-off · 40% before site mobilisation · 10% at handover.</p><p><strong>Exclusions</strong><br>Statutory approvals, structural and civil works, and loose appliances.</p><p>This is an indicative estimate; final pricing is subject to a confirmed brief and site review.</p></div>
+        <div class="quote-actions"><button class="btn small" type="button" id="download-quote">Get PDF</button><a class="btn small ghost whatsapp-link" id="whatsapp-quote" href="https://wa.me/917742517708?text=Hello%2C%20I%27d%20like%20to%20ask%20about%20an%20interior%20design%20quotation." target="_blank" rel="noopener noreferrer">Ask about this quote on WhatsApp</a><span class="action-message" id="pdf-message" aria-live="polite">In the print window, choose “Save as PDF”.</span></div>
+      </aside>
+    </section>
+  </main>
+  <footer class="site-footer quote-footer"><div class="wrap footer-inner"><span>© <span data-year></span> Shreejan Interiors</span><span>Spaces with a softer point of view.</span></div></footer>
+  <script src="app.js?v=2" defer></script>
+  <script src="quote.js?v=7" defer></script>
+</body>
+</html>
